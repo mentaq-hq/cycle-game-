@@ -1,0 +1,21 @@
+[package]
+name = "cycle-sky-backend"
+version = "1.0.0"
+edition = "2021"
+description = "Heavy physics + leaderboard backend for CYCLE SKY (Rust Axum Tokio) — handles balance simulation at 120Hz"
+
+[dependencies]
+axum = { version = "0.7", features = ["json", "ws"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[profile.release]
+opt-level = 3
+lto = true
