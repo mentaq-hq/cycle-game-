@@ -1,0 +1,2 @@
+export type Obj={id:string;x:number;y:number;visible:boolean;lod:0|1|2;hidden?:boolean};
+export class PerformanceSystem{constructor(private w:number,private h:number){}update(objects:Obj[],camX:number,camY:number){const LOD1=180,LOD2=320;for(const o of objects){const dx=o.x-camX,dy=o.y-camY;const d=Math.hypot(dx,dy);o.visible=Math.abs(dx)<this.w/2+64&&Math.abs(dy)<this.h/2+64;if(!o.visible||o.hidden)continue;o.lod=d>LOD2?2:d>LOD1?1:0;}return objects.filter(o=>o.visible&&!o.hidden);}}
