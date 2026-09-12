@@ -1,0 +1,3 @@
+export function playCollect(){try{const A=(window as any).AudioContext||(window as any).webkitAudioContext;if(!A)return;const ctx=new A();const o=ctx.createOscillator();const g=ctx.createGain();o.type='triangle';o.frequency.value=720;o.connect(g);g.connect(ctx.destination);g.gain.value=0.03;o.start();o.stop(ctx.currentTime+0.08);}catch{}}
+export function vibrate(ms=20){if('vibrate' in navigator) navigator.vibrate(ms);}
+export function collectFeedback(){playCollect();vibrate(20);}
