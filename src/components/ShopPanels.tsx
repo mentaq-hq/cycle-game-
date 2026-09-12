@@ -1,0 +1,5 @@
+import React,{lazy,Suspense,useState} from 'react';
+const Feed=lazy(()=>import('./panels/FeedPanel'));
+const Build=lazy(()=>import('./panels/BuildPanel'));
+const Shop=lazy(()=>import('./panels/AnimalShopPanel'));
+export default function ShopPanels(){const [tab,setTab]=useState<'feed'|'build'|'shop'|null>(null);return(<><div className='fixed right-3 top-32 flex flex-col gap-3'><button onClick={()=>setTab('feed')} className='w-12 h-12 rounded-full bg-green-500 text-white'>🌾</button><button onClick={()=>setTab('build')} className='w-12 h-12 rounded-full bg-yellow-400'>🏠</button><button onClick={()=>setTab('shop')} className='w-12 h-12 rounded-full bg-purple-500 text-white'>🛒</button></div>{tab&&<div className='fixed inset-0 bg-black/30 flex items-end'><div className='w-full bg-white rounded-t-3xl p-4 min-h-64'><button className='mb-3 text-sm' onClick={()=>setTab(null)}>Close</button><Suspense fallback={<div>Loading...</div>}>{tab==='feed'&&<Feed/>}{tab==='build'&&<Build/>}{tab==='shop'&&<Shop/>}</Suspense></div></div>}</>)}
