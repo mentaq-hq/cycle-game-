@@ -1,0 +1,3 @@
+export type TimeOfDay='day'|'evening'|'night';
+export type WeatherState={time:TimeOfDay;light:number;sky:string;cloudOffset:number};
+export class WeatherSystem{state:WeatherState={time:'day',light:1,sky:'#87CEEB',cloudOffset:0};update(delta:number,totalSeconds:number){const cycle=totalSeconds%180;if(cycle<90){this.state.time='day';this.state.light=1;this.state.sky='#87CEEB';}else if(cycle<135){this.state.time='evening';this.state.light=0.7;this.state.sky='#F59E42';}else{this.state.time='night';this.state.light=0.35;this.state.sky='#0F172A';}this.state.cloudOffset+=delta*0.15;return this.state;}}
