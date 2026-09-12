@@ -1,0 +1,3 @@
+export type DecorationTheme={ground:string;trees:string;flowers:string;props:string[]};
+export const THEMES={spring:{ground:'#86EFAC',trees:'#F9A8D4',flowers:'#F472B6',props:['cherry_tree','tulip','bush']},summer:{ground:'#65A30D',trees:'#16A34A',flowers:'#FACC15',props:['sunflower','hay_bale','watering_can']},autumn:{ground:'#92400E',trees:'#FB923C',flowers:'#F59E0B',props:['pumpkin','barrel','leaf_pile']},winter:{ground:'#E0F2FE',trees:'#E5E7EB',flowers:'#FFFFFF',props:['snowman','ice_lantern','gift_box']}} as const;
+export function getTheme(season:keyof typeof THEMES){return THEMES[season];}
