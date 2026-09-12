@@ -1,0 +1,29 @@
+[
+  {
+    "id": "task_milk",
+    "icon": "🥛",
+    "name": "Collect Milk",
+    "target": 10,
+    "rewardCoins": 120,
+    "rewardXP": 40,
+    "resource": "milk"
+  },
+  {
+    "id": "task_eggs",
+    "icon": "🥚",
+    "name": "Collect Eggs",
+    "target": 15,
+    "rewardCoins": 150,
+    "rewardXP": 50,
+    "resource": "egg"
+  },
+  {
+    "id": "task_feed",
+    "icon": "🌾",
+    "name": "Feed Animals",
+    "target": 8,
+    "rewardCoins": 100,
+    "rewardXP": 35,
+    "resource": "feed"
+  }
+]
