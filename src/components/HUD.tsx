@@ -1,0 +1,4 @@
+import { memo } from 'react';
+import { useGame } from '../state/GameState';
+
+export default memo(function HUD(){const { state }=useGame();const xpNeed=Math.floor(100*Math.pow(state.level,1.15));const pct=Math.min(100,(state.xp/xpNeed)*100);return(<div className='absolute inset-x-0 top-0 p-3 pointer-events-none'><div className='flex items-center justify-between'><div className='bg-white/90 rounded-full px-3 py-2 flex items-center gap-2'><div className='w-9 h-9 rounded-full bg-orange-300'/><div><div className='text-xs font-bold'>Level {state.level}</div><div className='w-28 h-2 bg-blue-100 rounded'><div className='h-2 bg-blue-500 rounded' style={{width:`${pct}%`}}/></div></div></div><div className='flex gap-2'><div className='bg-yellow-200 rounded-full px-3 py-1 text-sm font-bold'>🪙 {state.coins}</div><div className='bg-purple-200 rounded-full px-3 py-1 text-sm font-bold'>💎 {state.gems}</div></div></div></div>)});
